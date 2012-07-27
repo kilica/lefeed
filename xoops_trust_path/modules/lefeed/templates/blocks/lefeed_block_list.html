@@ -1,0 +1,10 @@
+<div class="list">
+	<{foreach item=obj from=$block}>
+	<div class="item">
+		<{assign var=file value=$obj->mData.template_name}>
+		<{assign var=data value=$obj->mData.data}>
+		<{include file=$file data=$data title=$obj->mData.title dirname=$obj->mData.dirname dataname=$obj->mData.dataname}>
+	</div>
+	<{/foreach}>
+	<a href="<{xoops_cooluri dirname=$dirname}>">more</a>
+</div>

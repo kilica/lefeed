@@ -1,0 +1,17 @@
+<div class="lefeed">
+<h1><{$smarty.const._MD_LEFEED_LANG_ENTRY}><{$smarty.const._LIST}></h1>
+
+<{if count($objects) > 0}>
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
+
+<{foreach item=obj from=$objects}>
+<div class="item">
+  <{assign var=file value=$obj->mData.template_name}>
+  <{assign var=data value=$obj->mData.data}>
+  <{include file=$file data=$data title=$obj->mData.title dirname=$obj->mData.dirname}>
+</div>
+<{/foreach}>
+
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
+<{/if}>
+</div>

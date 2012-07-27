@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="<{$channel.language}>">
+  <title><{$channel.title}></title>
+  <link><{$channel.link}></link>
+  <author>
+    <name><{$channel.author}></name>
+  </author>
+  <id>tag:<{$channel.link}></id>
+  <updated><{"c"|date:$channel.updated}></updated>
+  <generator uri="<{$xoops_url}>/"><{$channel.generator}></generator>
+  <{foreach item=item from=$objects}>
+  <entry>
+    <title><{$item->mData.title}></title>
+    <link href="<{$item->mData.link}>" />
+    <content><![CDATA[
+<{$item->mData.content}>
+]]>
+    </content>
+    <id><{$item->mData.id}></id>
+    <updated><{"c"|date:$item->mData.published}></updated>
+    <author>
+      <name><{$item->mData.author}></name>
+    </author>
+  </entry>
+  <{/foreach}>
+</feed>

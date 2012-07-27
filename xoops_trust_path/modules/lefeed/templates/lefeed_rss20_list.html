@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title><{$channel.title}></title>
+    <link><{$channel.link}></link>
+    <description><{$channel.description}></description>
+    <lastBuildDate><{"r"|date:$channel.updated}></lastBuildDate>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <generator><{$channel.generator}></generator>
+    <webMaster><{$channel.author}></webMaster>
+    <language><{$channel.language}></language>
+    <{if $image_url != ""}>
+    <image>
+      <title><{$channel_title}></title>
+      <url><{$image_url}></url>
+      <link><{$channel_link}></link>
+      <width><{$image_width}></width>
+      <height><{$image_height}></height>
+    </image>
+    <{/if}>
+    <{foreach item=item from=$objects}>
+    <item>
+      <title><{$item->mData.title}></title>
+      <link><{$item->mData.link}></link>
+      <description><![CDATA[
+<{$item->mData.content}>
+]]>
+      </description>
+      <pubDate><{"r"|date:$item->mData.published}></pubDate>
+      <guid><{$item->mData.id}></guid>
+      <author><{$item->mData.author}></author>
+    </item>
+    <{/foreach}>
+  </channel>
+</rss>
