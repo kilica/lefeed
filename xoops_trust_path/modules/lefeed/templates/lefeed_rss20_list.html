@@ -21,13 +21,13 @@
     <{foreach item=item from=$objects}>
     <item>
       <title><{$item->mData.title}></title>
-      <link><{$item->mData.link}></link>
+      <link><{$item->mData.link|xoops_escape}></link>
       <description><![CDATA[
 <{$item->mData.content}>
 ]]>
       </description>
       <pubDate><{"r"|date:$item->mData.published}></pubDate>
-      <guid><{$item->mData.id}></guid>
+      <guid><{$item->mData.id|xoops_escape}></guid>
       <author><{$item->mData.author}></author>
     </item>
     <{/foreach}>

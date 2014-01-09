@@ -104,7 +104,7 @@ abstract class Lefeed_AbstractAction
 		$channel = array();
 		$channel['title'] = htmlspecialchars($this->mRoot->mContext->getXoopsConfig('sitename'), ENT_QUOTES);
 		$channel['language'] = _LANGCODE;
-		$channel['link'] = XOOPS_URL;
+		$channel['link'] = XOOPS_URL.'/';
 		$channel['author'] = htmlspecialchars($this->mRoot->mContext->getXoopsConfig('meta_author'), ENT_QUOTES);
 		$channel['id'] = XOOPS_URL;
 		$lastObj = array_shift($this->mObjects);
